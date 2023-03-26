@@ -20,17 +20,26 @@ int i = 0;
  return userArray;
 }
 
-string[] analyzedUserArray (string[] userArray)
+void analyzedArray (string[] userArray)
 {
-   int GreaterThan0Counter = 0;
-  for ( int i = 0; i < userArray.Length;  i++ )
-  {
-    if (userArray[i] > 0) GreaterThan0Counter++;
-  }
-  Console.WriteLine();
-  Console.WriteLine("количество введеных чисел больше 0 = " + GreaterThan0Counter);
-  return GreaterThan0Counter;
+    string[] analyzedUserArray = new string[userArray.Length];
+    int j = 0;
+    for (int i = 0; i < userArray.Length; i++)
+    {
+        if (userArray[i].Length <= 3)
+        {
+            analyzedUserArray[j] = userArray[i];
+            j++;
+        }
+    }
+Console.Write("Обработанный массив: ");
+for (int i = 0; i < analyzedUserArray.Length; i++)
+    {
+        Console.Write($"{analyzedUserArray[i]} ");
+    }
+Console.WriteLine();
 }
 
 int G = getUserData("Введите количество записей в массиве");
-string[] arrayDisplayG = EnterUserArray (G);
+string[] UserArrayDisplay = EnterUserArray (G);
+analyzedArray(UserArrayDisplay);
